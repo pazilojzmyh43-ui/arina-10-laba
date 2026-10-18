@@ -1,0 +1,12 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+<h2>Регистрация нового пользователя</h2>
+<p>Создайте аккаунт на сайте «Пси-Эксперт»</p>
+
+<form method="post">
+    {% csrf_token %}           <!-- Обязательно для POST-запросов -->
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary btn-lg">Зарегистрироваться</button>
+</form>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+<h2>{{ title }}</h2>
+<p class="catalog-lead">После добавления вы вернётесь на страницу каталога.</p>
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Добавить услугу</button>
+    <a href="{% url 'catalog' %}" class="btn btn-default">Отмена</a>
+</form>
+{% endblock %}

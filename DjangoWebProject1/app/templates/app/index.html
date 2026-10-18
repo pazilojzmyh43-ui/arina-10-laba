@@ -1,0 +1,109 @@
+﻿{% extends "app/layout.html" %}
+{% load static %}
+
+{% block content %}
+<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="4000">
+
+    <!-- Индикаторы -->
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+
+    <!-- Слайды -->
+    <div class="carousel-inner" role="listbox">
+
+        <!-- Первый слайд -->
+        <div class="item active">
+            <img src="{% static 'app/content/banner1.jpg' %}" alt="Внутренний баланс" class="img-responsive" style="width:100%; height:420px; object-fit: cover;">
+            <div class="carousel-caption">
+                <h2>Найди гармонию с собой</h2>
+                <p>Профессиональная психологическая помощь</p>
+                <a href="{% url 'about' %}" class="btn btn-primary">Подробнее о нас</a>
+            </div>
+        </div>
+
+        <!-- Второй слайд -->
+        <div class="item">
+            <img src="{% static 'app/content/banner2.jpg' %}" alt="Онлайн консультация" class="img-responsive" style="width:100%; height:420px; object-fit: cover;">
+            <div class="carousel-caption">
+                <h2>Онлайн-сессии</h2>
+                <p>КПТ, EMDR, ImTT — работаем дистанционно</p>
+                <a href="{% url 'contact' %}" class="btn btn-primary">Записаться</a>
+            </div>
+        </div>
+
+        <!-- Третий слайд -->
+        <div class="item">
+            <img src="{% static 'app/content/banner3.jpg' %}" alt="Психологическая поддержка" class="img-responsive" style="width:100%; height:420px; object-fit: cover;">
+            <div class="carousel-caption">
+                <h2>Конфиденциальность и поддержка</h2>
+                <p>Для взрослых от 18 лет</p>
+                <a href="{% url 'blog' %}" class="btn btn-primary">Читать статьи</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Стрелки управления -->
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="icon-prev" aria-hidden="true"></span>
+        <span class="sr-only">Предыдущий</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="icon-next" aria-hidden="true"></span>
+        <span class="sr-only">Следующий</span>
+    </a>
+</div>
+
+<div class="jumbotron">
+    <h1>Пси-Эксперт</h1>
+    <h2>Первый Псковский профессиональный психологический центр</h2>
+    <p class="lead">
+        Профессиональная психологическая помощь взрослым в Пскове.<br>
+        Консультации, терапия, кризисная поддержка, работа с тревогой, депрессией и отношениями.
+    </p>
+    <p>
+        <a href="#" class="btn btn-primary btn-lg">Запись на консультацию</a>
+    </p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h3>Почему мы?</h3>
+        <ul>
+            <li>
+                <strong>Высокий профессионализм</strong>
+                <ul>
+                    <li>Психологи с высшим образованием и опытом более 20 лет</li>
+                    <li>Сертификаты и регулярное повышение квалификации</li>
+                    <li>Использование современных методов (КПТ, ImTT, EMDR)</li>
+                </ul>
+            </li>
+            <li>
+                <strong>Полная конфиденциальность</strong>
+                <ul>
+                    <li>Гарантия анонимности всех обращений</li>
+                    <li>Соответствие Федеральному закону о персональных данных</li>
+                </ul>
+            </li>
+            <li>
+                <strong>Индивидуальный подход</strong>
+                <ul>
+                    <li>Подбор специалиста именно под ваш запрос</li>
+                    <li>Гибкий график и возможность онлайн/оффлайн</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="col-md-4">
+        <h3>Онлайн и оффлайн</h3>
+        <p>Запись в кабинет в Пскове или онлайн-консультация по Zoom/WhatsApp.</p>
+    </div>
+    <div class="col-md-4">
+        <h3>Для кого</h3>
+        <p>Взрослые, подростки, семейные пары, родители с детьми.</p>
+    </div>
+</div>
+
+{% endblock %}

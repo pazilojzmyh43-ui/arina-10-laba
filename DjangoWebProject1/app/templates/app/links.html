@@ -1,0 +1,40 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+    {% load static %}
+
+<h2>Полезные ресурсы</h2>
+<p>
+    Официальные источники по методам работы центра «Пси-Эксперт».
+    Здесь вы можете подробнее узнать о КПТ, EMDR и ImTT.
+</p>
+
+<div class="row">
+    <div class="col-md-4 text-center">
+        <a href="https://associationcbt.ru/" target="_blank">
+            <img src="{% static 'app/content/cbt_logo.png' %}"
+                 alt="Ассоциация КПТ"
+                 style="max-width:100%; height:120px; margin-bottom:15px;">
+        </a>
+        <h4>Ассоциация когнитивно-поведенческой психотерапии</h4>
+    </div>
+
+    <div class="col-md-4 text-center">
+        <a href="https://emdr.ru/" target="_blank">
+            <img src="{% static 'app/content/emdr_logo.png' %}"
+                 alt="Ассоциация EMDR"
+                 style="max-width:100%; height:120px; margin-bottom:15px;">
+        </a>
+        <h4>Ассоциация ДПДГ/EMDR России</h4>
+    </div>
+
+    <div class="col-md-4 text-center">
+        <a href="https://www.imttherapy.com/" target="_blank">
+            <img src="{% static 'app/content/imtt_logo.png' %}"
+                 alt="ImTT"
+                 style="max-width:100%; height:120px; margin-bottom:15px;">
+        </a>
+        <h4>Image Transformation Therapy (ImTT) Роберта Миллера</h4>
+    </div>
+</div>
+{% endblock %}

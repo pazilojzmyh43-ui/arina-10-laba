@@ -1,0 +1,13 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+<h2>{{ title }}</h2>
+<p class="catalog-lead">Новая категория появится в каталоге сразу после сохранения.</p>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Сохранить категорию</button>
+    <a href="{% url 'catalog' %}" class="btn btn-default">Отмена</a>
+</form>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+<h2>{{ title }}</h2>
+<p class="catalog-lead">Услуги психологического центра «Пси-Эксперт». Выберите категорию, чтобы посмотреть форматы работы.</p>
+
+<div class="row catalog-row">
+    {% for category in categories %}
+    <div class="col-md-4">
+        <div class="catalog-card">
+            <h3><a href="{% url 'catalog_category' parameter=category.id %}">{{ category.name }}</a></h3>
+            <p>{{ category.description }}</p>
+            <p><a class="btn btn-primary" href="{% url 'catalog_category' parameter=category.id %}">Смотреть услуги</a></p>
+        </div>
+    </div>
+    {% empty %}
+    <div class="col-md-12">
+        <p>Категории пока не добавлены.</p>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

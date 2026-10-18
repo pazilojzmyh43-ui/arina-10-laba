@@ -1,0 +1,24 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+<p class="catalog-back">
+    <a href="{% url 'catalog' %}">Каталог</a>
+    /
+    <a href="{% url 'catalog_category' parameter=item.category.id %}">{{ item.category.name }}</a>
+</p>
+
+<div class="row">
+    <div class="col-md-5">
+        {% if item.image %}
+        <img src="{{ item.image.url }}" alt="{{ item.name }}" class="catalog-detail-img">
+        {% endif %}
+    </div>
+    <div class="col-md-7">
+        <h2>{{ item.name }}</h2>
+        <p><strong>Категория:</strong> {{ item.category.name }}</p>
+        <p class="catalog-price">{{ item.price_display }}</p>
+        <div>{{ item.full_description|linebreaks }}</div>
+        <p><a class="btn btn-primary" href="{% url 'contact' %}">Записаться</a></p>
+    </div>
+</div>
+{% endblock %}

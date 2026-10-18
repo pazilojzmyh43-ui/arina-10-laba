@@ -1,0 +1,57 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+<h2>Обратная связь</h2>
+<p class="lead">Спасибо, что помогаете нам становиться лучше! Ваше мнение очень важно для «Пси-Эксперт».</p>
+
+    {% if form %}   <!-- Если форма передана — показываем форму (лекция 7) -->
+<form method="post">
+    {% csrf_token %}   <!-- ОБЯЗАТЕЛЬНО по лекции 7 для POST-запросов -->
+    {{ form.as_p }}    <!-- Автоматически рисует все поля + labels -->
+    <button type="submit" id="submitBtn" class="btn btn-primary btn-lg mt-3">Отправить отзыв</button>
+</form>
+    {% else %}   <!-- Если данных нет — показываем благодарность + список данных -->
+<div class="alert alert-success">
+    <h3>Спасибо за отзыв!</h3>
+    <p>Ваш отзыв отправлен психологу центра «Пси-Эксперт». Мы обязательно его учтём.</p>
+</div>
+
+<h4>Вы написали:</h4>
+<ul class="list-group">
+    <li class="list-group-item"><strong>Имя:</strong> {{ data.name }}</li>
+    <li class="list-group-item"><strong>E-mail:</strong> {{ data.email }}</li>
+    <li class="list-group-item"><strong>Источник:</strong> {{ data.source|default:"Не указан" }}</li>
+    <li class="list-group-item"><strong>Оценка сайта:</strong> {{ data.website_rating }}</li>
+    <li class="list-group-item"><strong>Понравилось:</strong> {{ data.liked_aspects|join:", " }}</li>
+    <li class="list-group-item"><strong>Рекомендация:</strong> {{ data.recommend }}</li>
+    <li class="list-group-item"><strong>Комментарии:</strong> {{ data.comments|default:"— " }}</li>
+</ul>
+    {% endif %}
+
+{% block scripts %}
+<script>
+
+
+    $(document).ready(function () {
+
+            $('#submitBtn').mouseover(function() {
+                $(this).css('color', '#ffffff');   
+            });
+
+            $('#submitBtn').mouseout(function() {
+                $(this).css('color', '#212529');    
+            });
+
+
+            $('input, textarea, select').focus(function() {
+                $(this).css('background-color', '#e3f2fd');
+            });
+
+            $('input, textarea, select').blur(function() {
+                $(this).css('background-color', '#ffffff'); 
+            });
+
+        });
+</script>
+{% endblock %}
+{% endblock %}

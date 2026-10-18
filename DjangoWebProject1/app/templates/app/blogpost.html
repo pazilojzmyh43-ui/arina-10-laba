@@ -1,0 +1,45 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+<h2>{{ post_1.title }}</h2>
+{% if post_1.image and post_1.image.url != '/media/temp.jpg' %}
+<img src="{{ post_1.image.url }}" alt="{{ post_1.title }}"
+     style="max-width: 100%; height: auto; border-radius: 10px; margin-bottom: 20px;">
+{% endif %}
+<h5>Опубликовано: {{ post_1.posted|date:"d.m.Y H:i" }}</h5>
+
+<div class="post-content">
+    {{ post_1.content|linebreaks }}
+</div>
+
+<hr />
+
+<!-- Форма добавления комментария -->
+    {% if user.is_authenticated %}
+<h3>Добавить комментарий</h3>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Отправить комментарий</button>
+</form>
+    {% else %}
+<h4>Для добавления комментария необходимо авторизоваться</h4>
+    {% endif %}
+
+<hr />
+
+<!-- Список комментариев -->
+<h3>Комментарии ({{ comments.count }})</h3>
+    {% for comment in comments %}
+<div class="comment">
+    <strong>{{ comment.author }}</strong>
+    <small>{{ comment.date|date:"d.m.Y H:i" }}</small>
+    <p>{{ comment.text|linebreaks }}</p>
+    <hr />
+</div>
+    {% empty %}
+<p>Пока нет комментариев. Будьте первым!</p>
+    {% endfor %}
+{% endblock %}
+
+

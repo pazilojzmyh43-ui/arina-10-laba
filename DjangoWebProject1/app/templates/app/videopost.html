@@ -1,0 +1,26 @@
+{% extends "app/layout.html" %}
+{% load static %}
+
+{% block content %}
+<h2>{{ title }}</h2>
+
+<p>Полезные видео по психологии и саморазвитию</p>
+
+<!-- Видео 1 -->
+<h3>1. Тренировка для вас </h3>
+<video width="800" height="450" controls poster="{% static 'app/content/poster1.jpg' %}">
+    <source src="/media/video1.mp4" type="video/mp4">
+    Ваш браузер не поддерживает воспроизведение видео.
+</video>
+
+<br>
+<br>
+
+<!-- Видео 2 -->
+<h3>2. Конфликт </h3>
+<video width="800" height="450" controls poster="{% static 'app/content/poster2.jpg' %}">
+    <source src="/media/video2.mp4" type="video/mp4">
+    Ваш браузер не поддерживает воспроизведение видео.
+</video>
+
+{% endblock %}

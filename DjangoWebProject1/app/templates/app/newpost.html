@@ -1,0 +1,12 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+<h2>{{ title }}</h2>
+
+<form method="post" enctype="multipart/form-data">
+    <!-- Важно для загрузки файлов! -->
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Опубликовать статью</button>
+</form>
+{% endblock %}

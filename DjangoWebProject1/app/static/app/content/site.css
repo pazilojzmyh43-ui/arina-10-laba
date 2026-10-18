@@ -1,0 +1,104 @@
+body {
+    padding-top: 80px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+/* styles for validation helpers */
+.field-validation-error {
+    color: #b94a48;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+input.input-validation-error {
+    border: 1px solid #b94a48;
+}
+
+input[type="checkbox"].input-validation-error {
+    border: 0 none;
+}
+
+.validation-summary-errors {
+    color: #b94a48;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+.navbar-nav > li > a {
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+.catalog-lead {
+    margin-bottom: 24px;
+    color: #555;
+}
+
+.catalog-row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.catalog-row > [class*="col-"] {
+    display: flex;
+    float: none;
+}
+
+.catalog-card {
+    background: #fff;
+    border: 1px solid #e3e3e3;
+    border-radius: 6px;
+    padding: 16px;
+    margin-bottom: 24px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.catalog-card img,
+.catalog-detail-img {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 12px;
+}
+
+.catalog-detail-img {
+    height: auto;
+    max-height: 420px;
+}
+
+.catalog-card h3 {
+    margin-top: 0;
+    font-size: 20px;
+}
+
+.catalog-price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #2f6f9f;
+}
+
+.catalog-back {
+    margin-bottom: 16px;
+}
